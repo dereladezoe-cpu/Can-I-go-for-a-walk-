@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A small art session</title>
+  <style>
+    /* Change the colours, border, or spacing to suit your idea. */
+    body { font-family: Arial, Helvetica, sans-serif; 
+          min-height:100vh;
+           margin:0 auto;
+           padding: 40px 24px;
+           box-sizing: border-box;
+           background: linear-gradient(to bottom, #6cb2dd 0%,
+          #73a0b0 55%, #2f3a44 100%)}
+   
+          main { padding: 24px; text-align:center; margin-top:95px;}
+    p { line-height: 1.6;color:rgb(217, 225, 235); font-size: 30px; }
+    h1 { color: white;font-size: 50px; }
+  </style>
+</head>
+<body>
+  <!-- My idea is to create a simple webpage that checks the weather conditions 
+   and determines if it is ideal for a walk.The page will display
+   the current weather conditions and use logical operators to
+   evaluate whether it is a good time to go for a walk or not. -->
+  <main>
+    <!-- Weather Conditions -->
+    <h1>Can I go for a walk?</h1>
+    <p>Check if the weather is ideal</p>
+    <p id="conditions">The weather conditions are:</p>
+    <p id="together">This is the ideal weather for a walk.</p>
+    <p id="explore">This is the bad weather for a walk.</p>
+  </main>
+
+  <script>
+    // True or false values 
+    const notRaining = true;
+    const isRaining = false;
+    const isSunny = true;
+    const isSnowing = true;
+    const isCloudy = true;
+
+    // 3 Logical operators used to determine if the weather is ideal for a walk.
+    const idealWalk = notRaining && isSunny; //not raining(true) and sunny(true) AND operator = true                  // My predictions 
+    const potentialForwalk = isRaining || isCloudy; //is raining(false) or is cloudy(true) OR operator = true
+    const badTimeToWalk = !isSnowing || !isSunny; // is snowing (false) or is sunny(false) NOT operator = false
+    const worstTimeToWalk = isRaining && !isSunny; //is raining(false) and not sunny(false) AND operator = false
+
+    //If its not raining and sunny, then it the most ideal weather for a walk. 
+    document.getElementById("conditions").textContent =
+      "Not raining: " + notRaining +
+      " | Is sunny: " + isSunny + " = Ideal weather for a walk:";
+    document.getElementById("together").textContent =
+      "Ideal weather to walk? (AND): " + idealWalk;
+    document.getElementById("explore").textContent =
+      "Good weather to walk? (NOT): " + badTimeToWalk;  
+  </script>
+</body>
+</html>
